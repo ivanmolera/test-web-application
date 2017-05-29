@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<dataSource name="schibsted.db">
+  <database-model serializer="dbm" rdbms="SQLITE" format-version="4.0">
+    <root id="1"/>
+    <schema id="2" parent="1">
+      <Current>1</Current>
+      <Visible>1</Visible>
+    </schema>
+    <table id="3" parent="2" name="Roles"/>
+    <table id="4" parent="2" name="UserRoles"/>
+    <table id="5" parent="2" name="Users"/>
+    <column id="6" parent="3" name="role">
+      <DataType>STRING(0,-1)|12</DataType>
+    </column>
+    <key id="7" parent="3">
+      <ColNames>role</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <column id="8" parent="4" name="username">
+      <DataType>STRING(0,-1)|12</DataType>
+    </column>
+    <column id="9" parent="4" name="role">
+      <Position>1</Position>
+      <DataType>STRING(0,-1)|12</DataType>
+    </column>
+    <key id="10" parent="4">
+      <ColNames>username
+role</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <foreign-key id="11" parent="4" name="#FAKE_UserRoles_1">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>username</ColNames>
+      <Deferrable>1</Deferrable>
+      <InitiallyDeferred>1</InitiallyDeferred>
+      <RefTableName>Users</RefTableName>
+      <RefColNames>username</RefColNames>
+      <OnDelete>delete</OnDelete>
+      <OnUpdate>no-action</OnUpdate>
+    </foreign-key>
+    <column id="12" parent="5" name="username">
+      <DataType>STRING(0,-1)|12</DataType>
+    </column>
+    <column id="13" parent="5" name="password">
+      <Position>1</Position>
+      <DataType>STRING(0,-1)|12</DataType>
+    </column>
+    <key id="14" parent="5">
+      <ColNames>username</ColNames>
+      <Primary>1</Primary>
+    </key>
+  </database-model>
+</dataSource>
